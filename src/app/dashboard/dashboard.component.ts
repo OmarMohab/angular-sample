@@ -20,8 +20,8 @@ export class DashboardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 2, rows: 1, content: EmployeesCountComponent },
-          { title: 'Card 2', cols: 2, rows: 1, content: DepartmentsCountComponent },
+          { title: 'Employees', cols: 2, rows: 1, content: EmployeesCountComponent },
+          { title: 'Departments', cols: 2, rows: 1, content: DepartmentsCountComponent },
           { title: 'Departments Sizes', cols: 4, rows: 1, content: PieChartComponent },
           { title: 'My Tasks', cols: 4, rows: 2, content: TasksComponent },
           { title: 'Employees', cols: 4, rows: 2, content: EmployeesTableComponent }
@@ -29,8 +29,8 @@ export class DashboardComponent {
       }
 
       return [
-        { title: 'Card 1', cols: 1, rows: 1, content: EmployeesCountComponent },
-        { title: 'Card 2', cols: 1, rows: 1, content: DepartmentsCountComponent },
+        { title: 'Employees', cols: 1, rows: 1, content: EmployeesCountComponent },
+        { title: 'Departments', cols: 1, rows: 1, content: DepartmentsCountComponent },
         { title: 'My Tasks', cols: 2, rows: 2, content: TasksComponent },
         { title: 'Department Sizes', cols: 2, rows: 1, content: PieChartComponent },
         { title: 'Employees', cols: 4, rows: 2, content: EmployeesTableComponent }

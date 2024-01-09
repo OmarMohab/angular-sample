@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -15,7 +15,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './employees-table.component.html',
   styleUrls: ['./employees-table.component.css']
 })
-export class EmployeesTableComponent implements OnInit {
+export class EmployeesTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Employee>;
@@ -29,7 +29,7 @@ export class EmployeesTableComponent implements OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'first_name', 'last_name', 'address', 'city', 'country', 'postal_code', 'department', 'actions'];
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.employeesService.employees$.subscribe(employees => {
       this.dataSource = new MatTableDataSource(employees);
       this.dataSource.sort = this.sort;
