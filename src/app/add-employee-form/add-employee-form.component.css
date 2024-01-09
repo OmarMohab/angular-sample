@@ -1,0 +1,22 @@
+.full-width {
+  width: 100%;
+}
+
+.employee-card {
+  min-width: 120px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+  overflow: auto;
+}
+
+.col:last-child {
+  margin-right: 0; 
+}

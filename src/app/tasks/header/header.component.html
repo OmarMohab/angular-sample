@@ -1,0 +1,21 @@
+<header class="header">
+    <!-- <div class="select-all">
+        <mat-checkbox
+            id="toggle-all"
+            class="toggle-all"
+            [checked]="isAllTasksSelected()"
+            (change)="toggleAllTasks($event.checked)"
+        >
+        </mat-checkbox>
+    </div> -->
+    <mat-form-field class="task-input">
+        <mat-label>Add Task</mat-label>
+        <input 
+            matInput 
+            placeholder="Ex. Add New Employee"
+            autofocus [value]="text" 
+            (keyup)="changeText($event)"
+            (keyup.enter)="addTask()"
+        >
+    </mat-form-field>
+</header>

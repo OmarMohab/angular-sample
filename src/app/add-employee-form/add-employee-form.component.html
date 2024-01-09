@@ -1,0 +1,85 @@
+<form [formGroup]="employeeForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="employee-card">
+    <mat-card-header>
+      <mat-card-title>Employee Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="First name" formControlName="first_name">
+            @if (employeeForm.controls['first_name'].hasError('required')) {
+              <mat-error>First name is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Last name" formControlName="last_name">
+            @if (employeeForm.controls['last_name'].hasError('required')) {
+              <mat-error>Last name is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            @if (employeeForm.controls['address'].hasError('required')) {
+              <mat-error>Address is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="City" formControlName="city">
+            @if (employeeForm.controls['city'].hasError('required')) {
+              <mat-error>City is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Country" formControlName="country">
+              @for (country of countries; track country) {
+                <mat-option [value]="country.code">{{ country.name }}</mat-option>
+              }
+            </mat-select>
+            @if (employeeForm.controls['country'].hasError('required')) {
+              <mat-error>Country is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput #postal_code maxlength="5" placeholder="Postal Code" type="number" formControlName="postal_code">
+            <mat-hint align="end">{{postal_code.value.length}} / 5</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Department" formControlName="department">
+              @for (department of this.departmentsService.departments$.getValue(); track department) {
+                <mat-option [value]="department.department_name">{{ department.department_name }}</mat-option>
+              }
+            </mat-select>
+            @if (employeeForm.controls['department'].hasError('required')) {
+              <mat-error>Department is <strong>required</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button style="margin-right: 4px;" (click)="cancel()" color="warn" type="button">Cancel</button>
+      <button mat-raised-button color="primary" type="submit">{{employeeInfo ? 'Update Employee' : 'Add Employee'}}</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

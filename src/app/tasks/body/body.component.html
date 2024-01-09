@@ -1,0 +1,12 @@
+<section class="main" [ngClass]="{ hidden: noTasksClass() }">
+    
+    <ul class="todo-list">
+        <app-task 
+            *ngFor="let task of visibleTasks()" 
+            [task]="task"
+            [isEditing]="editingId === task.id"
+            (setEditingId)="setEditingId($event)"
+        >
+        </app-task>
+    </ul>
+</section>

@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.icon-display {
+    transform: scale(2);
+    margin-right: 30px;
+}
+
+.icon-label {
+    width: 100%;
+    margin-top: 10px;
+    align-self: last baseline;
+    text-align: center;
+}
+
+.employees-number {
+    align-self: last baseline;
+}

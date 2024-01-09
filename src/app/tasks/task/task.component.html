@@ -1,0 +1,29 @@
+<li [ngClass]="{ editing: isEditing }">
+    <div class="view">
+        <mat-checkbox 
+            class="toggle" 
+            type="checkbox" 
+            [checked]="task.isComplete" 
+            (change)="toggleTask()"
+        >
+        <label [ngClass]="{ completed: task.isComplete }" (dblclick)="setTaskInEditMode()">{{ task.text }}</label>
+    </mat-checkbox>
+        <button mat-icon-button color="warn" (click)="removeTask()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <ng-container *ngIf="isEditing">
+        <mat-form-field class="task-input">
+            <mat-label>Edit Task</mat-label>
+            <input 
+                matInput
+                class="edit"
+                #textInput
+                [value]="editingText" 
+                (keyup)="changeText($event)" 
+                (keyup.enter)="changeTask()"
+            >
+        </mat-form-field>
+    </ng-container>
+</li>
+<mat-divider></mat-divider>

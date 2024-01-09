@@ -1,0 +1,25 @@
+<footer class="footer" [ngClass]="{ hidden: noTasksClass() }">
+    <div class="footer-content">
+        <span class="tasks-count">
+            <strong>{{ activeCount() }}</strong>
+            {{ itemsLeftText() }}
+        </span>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle
+                [ngClass]="{ selected: filterSig() === filterEnum.all }"
+                (click)="changeFilter($event, filterEnum.all)">
+                All
+            </mat-button-toggle>
+            <mat-button-toggle
+                [ngClass]="{ selected: filterSig() === filterEnum.active }"
+                (click)="changeFilter($event, filterEnum.active)">
+                Active
+            </mat-button-toggle>
+            <mat-button-toggle
+                [ngClass]="{ selected: filterSig() === filterEnum.completed }"
+                (click)="changeFilter($event, filterEnum.completed)">
+                Completed
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</footer>

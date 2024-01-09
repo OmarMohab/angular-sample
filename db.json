@@ -1,0 +1,37 @@
+{
+  "employees": [
+    {
+      "first_name": "Charles",
+      "last_name": "Dickens",
+      "address": "221 Baker Street",
+      "city": "London",
+      "country": "AK",
+      "postal_code": 19519,
+      "department": "Sales",
+      "id": 1
+    }
+  ],
+  "departments": [
+    {
+      "department_id": 1,
+      "department_name": "Human Resources"
+    },
+    {
+      "department_id": 2,
+      "department_name": "Sales"
+    },
+    {
+      "department_id": 3,
+      "department_name": "IT"
+    },
+    {
+      "department_id": 4,
+      "department_name": "Marketing"
+    },
+    {
+      "department_id": 5,
+      "department_name": "Accounting"
+    }
+  ],
+  "tasks": []
+}
